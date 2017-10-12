@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="preInit" default-destroy-method="predestroy">
+
+
+
+
+	<bean class="com.vp.spring.domain.Organization"
+		init-method="initialize" destroy-method="destroy" autowire="byName">
+		<constructor-arg value="BMW" index="0"></constructor-arg>
+		<constructor-arg value="1990" index="1"></constructor-arg>
+		<property name="employeeCount" value="1000"></property>
+		<property name="address" value="Mathura UP"></property>
+		<constructor-arg index="2" value="123"></constructor-arg>
+		<property name="businessService" ref="cloudService"></property>
+	</bean>
+	<bean id="cloudService"
+		class="com.vp.spring.serviceimpl.CloudBusinessService">
+	</bean>
+	<bean id="ecomerceService"
+		class="com.vp.spring.serviceimpl.ECommerceBusinessService">
+	</bean>
+</beans>
